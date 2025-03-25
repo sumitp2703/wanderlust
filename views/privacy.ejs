@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - YourWebsite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #666;
+            padding: 1rem 5%;
+        }
+
+        .breadcrumb a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 2rem auto;
+            gap: 2rem;
+            padding: 0 5%;
+        }
+
+        /* Left Section - Privacy Content */
+        .privacy-content {
+            flex: 2;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .privacy-content h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content p {
+            font-size: 1rem;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-content a {
+            color: #fe424d;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .privacy-content a:hover {
+            text-decoration: underline;
+        }
+
+        .privacy-content ul {
+            padding-left: 1rem;
+            list-style-type: disc;
+        }
+
+        .privacy-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Right Section - Contact Box */
+        .contact-box {
+            flex: 1;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box button {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: none;
+            background: #000000;
+            color: white;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-box a {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: #0073e6;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="/">Home</a> > <a href="#">Legal Terms</a> > <span>Privacy Policy</span>
+    </nav>
+
+    <div class="container">
+        <!-- Privacy Policy Content -->
+        <div class="privacy-content">
+            <h1>Privacy Policy</h1>
+            <p>Our Privacy Policy explains what personal information we collect, how we use personal information, how it is shared, and your privacy rights.</p>
+            
+            <p><a href="#">Privacy Policy</a></p>
+
+            <p>Please review the supplemental privacy policies linked below, which may apply to specific services.</p>
+
+            <h3>Supplemental Privacy Policy Documents</h3>
+            <ul>
+                <li><a href="#">Outside the United States Supplement</a></li>
+                <li><a href="#">United States Privacy Supplement</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">Enterprise Customers and Work Policies</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-box">
+            <h3>Need to get in touch?</h3>
+            <p>We’ll start with some questions and get you to the right place.</p>
+            <a href="/contactus"><button class="btn btn-dark edit-btn">Contact Us</button></a>
+            <a href="/feedback">Give us feedback</a>
+        </div>
+    </div>
+
+</body>
+</html>

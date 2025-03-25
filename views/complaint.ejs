@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  .complaint-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .complaint-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .complaint-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  .complaint-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .complaint-form input,
+  .complaint-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .complaint-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .complaint-form button {
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .complaint-form button:hover {
+    background-color: #e63946;
+  }
+</style>
+
+<div class="complaint-container">
+  <h1 class="complaint-title">Submit a Complaint</h1>
+  <p class="complaint-description">Have an issue? Let us know, and we’ll do our best to resolve it as soon as possible.</p>
+
+  <form class="complaint-form" action="/complaint" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    
+    <select name="issueType" required>
+      <option value="">Select Issue Type</option>
+      <option value="booking">Booking Issue</option>
+      <option value="payment">Payment Problem</option>
+      <option value="host">Host Related</option>
+      <option value="account">Account Issue</option>
+      <option value="other">Other</option>
+    </select>
+
+    <textarea name="message" rows="5" placeholder="Describe your complaint" required></textarea>
+    <button type="submit">Submit Complaint</button>
+  </form>
+</div>

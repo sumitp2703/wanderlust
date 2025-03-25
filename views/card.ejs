@@ -1,0 +1,106 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4 shadow">
+                <h3 class="text-center">Payment Details</h3>
+
+                <h5 class="text-center">Price: ₹<%= listing.price %></h5>
+                <p class="text-center">Location: <%= listing.location %></p>
+
+                <!-- Payment Selection Buttons -->
+                <div class="d-flex justify-content-center mb-3">
+                    <button type="button" class="btn btn-outline-primary me-2" id="cardBtn" style="width: 250px;">Card</button>
+                    <button type="button" class="btn btn-danger" id="cashBtn" style="width: 250px;">Cash</button>
+                </div>
+
+                <!-- Card Payment Section -->
+                <div id="cardSection" class="payment-section" style="display: none;">
+                    <h4 class="text-center">Enter Card Details</h4>
+                    <form id="cardForm">
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Card Number</label>
+                            <input type="text" id="cardNumber" class="form-control" placeholder="1234 5678 9101 1121" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="expiry" class="form-label">Expiry Date</label>
+                            <input type="text" id="expiry" class="form-control" placeholder="MM/YY" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="password" id="cvv" class="form-control" placeholder="***" required>
+                        </div>
+
+                        <!-- Optional Coupon Code -->
+                        <div class="mb-3">
+                            <label for="couponCard" class="form-label">Coupon Code (Optional)</label>
+                            <input type="text" id="couponCard" class="form-control" placeholder="Enter coupon code">
+                        </div>
+
+                        <!-- Optional Description -->
+                        <div class="mb-3">
+                            <label for="descriptionCard" class="form-label">Description (Optional)</label>
+                            <textarea id="descriptionCard" class="form-control" rows="2" placeholder="Any additional information..."></textarea>
+                        </div>
+
+                        <button type="button" id="confirmCardBtn" class="btn btn-success w-100">Confirm Card Payment</button>
+                    </form>
+                </div>
+
+                <!-- Cash Payment Section -->
+                <div id="cashSection" class="payment-section" style="display: none;">
+                    <h4 class="text-center">Cash Payment Details</h4>
+                    <p class="text-center">You have chosen to pay in cash upon delivery.</p>
+
+                    <!-- Optional Coupon Code -->
+                    <div class="mb-3">
+                        <label for="couponCash" class="form-label">Coupon Code (Optional)</label>
+                        <input type="text" id="couponCash" class="form-control" placeholder="Enter coupon code">
+                    </div>
+
+                    <!-- Optional Description -->
+                    <div class="mb-3">
+                        <label for="descriptionCash" class="form-label">Description (Optional)</label>
+                        <textarea id="descriptionCash" class="form-control" rows="2" placeholder="Any additional information..."></textarea>
+                    </div>
+
+                    <button type="button" id="confirmCashBtn" class="btn btn-success w-100">Confirm Cash Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get elements
+    const cardBtn = document.getElementById("cardBtn");
+    const cashBtn = document.getElementById("cashBtn");
+    const cardSection = document.getElementById("cardSection");
+    const cashSection = document.getElementById("cashSection");
+
+    // Show card section & hide cash section
+    cardBtn.addEventListener("click", function () {
+        cardSection.style.display = "block";
+        cashSection.style.display = "none";
+    });
+
+    // Show cash section & hide card section
+    cashBtn.addEventListener("click", function () {
+        cashSection.style.display = "block";
+        cardSection.style.display = "none";
+    });
+
+    // Payment confirmation
+    document.getElementById("confirmCardBtn").addEventListener("click", function () {
+        alert("Card Payment Successful!");
+        window.location.href = "/listings"; // Redirect to Listings Page
+    });
+
+    document.getElementById("confirmCashBtn").addEventListener("click", function () {
+        alert("Cash Payment Selected! Pay on delivery.");
+        window.location.href = "/listings"; // Redirect to Listings Page
+    });
+</script>

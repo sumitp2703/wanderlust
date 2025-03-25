@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Payment Details</h2>
+
+    <div class="card col-md-6 mx-auto">
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+
+        <div class="card-body">
+            <h3 class="card-title"><%= listing.title %></h3>
+            <p class="card-text">Owned by <i><%= listing.owner.username %></i></p>
+            <p class="card-text"><%= listing.description %></p>
+
+            <p class="card-text">
+                <strong>Price: </strong> &#8377; <%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %>
+            </p>
+
+            <p class="card-text"><strong>Location: </strong> <%= listing.location %>, <%= listing.country %></p>
+
+            <!-- Dummy Payment Form -->
+            <form action="/process-payment" method="POST">
+                <input type="hidden" name="listingId" value="<%= listing._id %>">
+                <a href="/listings/<%= listing._id %>/card" class="btn btn-success mt-3 w-100">
+                    Pay Now
+                </a>
+                
+            </form>
+        </div>
+    </div>
+</div>

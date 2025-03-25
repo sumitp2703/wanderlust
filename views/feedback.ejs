@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  .feedback-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .feedback-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .feedback-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .feedback-form input,
+  .feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .feedback-form button {
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  .feedback-form button:hover {
+    background-color: #e63946;
+  }
+</style>
+
+<div class="feedback-container">
+  <h1 class="feedback-title">We Value Your Feedback</h1>
+  <p class="feedback-description">Your opinions help us improve our services and create a better experience for everyone.</p>
+
+  <form class="feedback-form" action="/feedback" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+</div>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | Airbnb Style</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #ff5a5f;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e0484f;
+        }
+        /* Feedback List */
+        .feedback-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .feedback-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-item p {
+            margin: 5px 0;
+        }
+        .feedback-item strong {
+            color: #ff5a5f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Share Your Feedback</h1>
+
+        <!-- Feedback Form -->
+        <form id="feedbackForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" required>
+            <textarea id="comment" placeholder="Write your feedback" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <!-- Display Feedback -->
+        <h2>What Our Guests Say</h2>
+        <div id="feedbackList" class="feedback-list">
+            <!-- Feedbacks will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const feedbackForm = document.getElementById("feedbackForm");
+            const feedbackList = document.getElementById("feedbackList");
+
+            // Load saved feedback from local storage
+            const savedFeedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+            savedFeedbacks.forEach(feedback => addFeedbackToPage(feedback));
+
+            feedbackForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Get form values
+                const name = document.getElementById("name").value;
+                const rating = document.getElementById("rating").value;
+                const comment = document.getElementById("comment").value;
+
+                if (name && rating && comment) {
+                    const feedback = { name, rating, comment, date: new Date().toLocaleDateString() };
+
+                    // Save feedback in local storage
+                    savedFeedbacks.push(feedback);
+                    localStorage.setItem("feedbacks", JSON.stringify(savedFeedbacks));
+
+                    // Add feedback to page
+                    addFeedbackToPage(feedback);
+
+                    // Clear form
+                    feedbackForm.reset();
+                }
+            });
+
+            function addFeedbackToPage(feedback) {
+                const feedbackItem = document.createElement("div");
+                feedbackItem.classList.add("feedback-item");
+
+                feedbackItem.innerHTML = `
+                    <p><strong>${feedback.name}</strong> (Rating: ${feedback.rating}/5)</p>
+                    <p>${feedback.comment}</p>
+                    <p class="date">${feedback.date}</p>
+                `;
+
+                feedbackList.prepend(feedbackItem); // Add the newest feedback on top
+            }
+        });
+    </script>
+
+</body>
+</html>

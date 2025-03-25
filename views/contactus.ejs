@@ -1,0 +1,83 @@
+<style>
+    .feedback-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .feedback-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .feedback-description {
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .feedback-form button {
+      background-color: #fe424d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .feedback-form button:hover {
+      background-color: #e63946;
+    }
+</style>
+    <section class="container mx-auto py-16 px-6">
+    <h2 class="text-5xl font-extrabold text-center mb-10 text-gray-800">Get in Touch</h2>
+    <p class="text-lg text-center text-gray-600 mb-12">We’d love to hear from you! Let us know how we can help.</p>
+    
+    <div class="bg-white shadow-xl rounded-xl p-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start">
+      <!-- Contact Info -->
+      <div class="w-full md:w-1/2 space-y-6 text-gray-700">
+        <div class="flex items-center space-x-5">
+          <i class="fas fa-envelope text-red-500 text-2xl"></i>
+          <p class="text-lg font-semibold">support@wanderlust.com</p>
+        </div>
+        <div class="flex items-center space-x-5">
+          <i class="fas fa-phone text-red-500 text-2xl"></i>
+          <p class="text-lg font-semibold">+91 98765 43210</p>
+        </div>
+        <div class="flex items-center space-x-5">
+          <i class="fas fa-map-marker-alt text-red-500 text-2xl"></i>
+          <p class="text-lg font-semibold">Mumbai, Maharashtra, India</p>
+        </div>
+        <div class="flex items-center space-x-5">
+          <i class="fas fa-clock text-red-500 text-2xl"></i>
+          <p class="text-lg font-semibold">Monday - Friday: 9 AM - 6 PM</p>
+        </div>
+      </div>
+      
+      <div class="feedback-container">
+        <h1 class="feedback-title">contact us<h1>
+        <p class="feedback-description">Your opinions help us improve our services and create a better experience for everyone.</p>
+      
+        <form class="feedback-form" action="/feedback" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+          <button type="submit">contact</button>
+        </form>
+      </div>
+  
